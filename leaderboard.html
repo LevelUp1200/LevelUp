@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>LEVEL UP! - Leaderboard</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="aboutus.html">About us</a>
+      <a href="milestones.html">Milestones</a>
+    </nav>
+    <div id="containterLeaderboard">
+      <header class="crt">Leaderboard</header>
+      <section>
+        <div class="podium">
+          <div class="podium-card rank-2">
+            <div class="podium-rank">#2</div>
+            <div class="podium-name"></div>
+            <div class="podium-xp"></div>
+          </div>
+          <div class="podium-card rank-1">
+            <div class="podium-rank">#1</div>
+            <div class="podium-name"></div>
+            <div class="podium-xp"></div>
+          </div>
+          <div class="podium-card rank-3">
+            <div class="podium-rank">#3</div>
+            <div class="podium-name"></div>
+            <div class="podium-xp"></div>
+          </div>
+        </div>
+      </section>
+      <main>
+        <div class="section-label">All Players</div>
+        <div class="table-wrap">
+          <table id="xpInfo">
+            <thead id="xpHead">
+              <tr>
+                <th>#</th>
+                <th>Alias</th>
+                <th>Level</th>
+                <th>Total XP</th>
+              </tr>
+            </thead>
+            <tbody class="tbody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
