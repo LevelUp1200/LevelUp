@@ -6,6 +6,10 @@
     --bread: #609edb;
 }
 
+main {
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
 body {
     font-family: 'Rajdhani', sans-serif;
     font-size: 16px;
@@ -57,25 +61,23 @@ body::-webkit-scrollbar-thumb {
         "mn";
     max-width: 860px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 0 24px;
 }
 
-header {
+.leaderboard-hero {
     grid-area: hd;
+    display: flex;
+    justify-content: center;
+    padding: 185px 24px 80px;
+}
+
+.leaderboard-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 92px;
     color: var(--cyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow:
-        0 0 20px var(--cyan),
-        0 0 60px var(--cyan),
-        0 0 100px var(--cyan);
-    animation: pulse-glow 4s ease-in-out infinite;
-    z-index: 0;
-    padding: 120px 24px 80px;
     animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+    margin: 0;
+    text-align: center;
 }
 
 .crt{
@@ -328,6 +330,7 @@ tbody tr:hover {
 
 section {
     grid-area: se;
+    height: 150px;
     padding-bottom: 40px;
 }
 
@@ -355,12 +358,26 @@ section {
     box-shadow: 0 0 20px var(--cyan);
 }
 
+.contacts-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 92px;
+    color: var(--cyan);
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+}
+
+.milestones-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 92px;
+    color: var(--cyan);
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+}
+
 .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 92px;
     color: var(--cyan);
-    animation: pulse-glow 4s ease-in-out infinite;
-} 
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+}
 
 .hero-desc {
     font-size: 18px;
