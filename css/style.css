@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
         0 0 20px var(--cyan);
 }
 
-/* ── WRAPPERS ── */
+/* --------------wrappers*/
 #wrapperAboutus,
 #wrapperHome,
 #wrapperLeaderboard,
@@ -68,9 +68,10 @@ body::-webkit-scrollbar-thumb {
     max-width: 1200px;
     padding: 0;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
-/* ── NAV ── */
+/* ------------nav*/
 nav {
     position: fixed;
     top: 0;
@@ -106,7 +107,7 @@ nav a.active {
     color: var(--cyan);
 }
 
-/* ── LEADERBOARD LAYOUT ── */
+/* ---------------leaderbpard layout*/
 #containterLeaderboard {
     display: grid;
     grid-template-rows: auto auto 1fr;
@@ -115,6 +116,8 @@ nav a.active {
         "se"
         "mn";
     width: 100%;
+    max-width: 1200px;
+    margin: 0px;
     padding: 0 16px;
 }
 
@@ -134,7 +137,7 @@ nav a.active {
     text-align: center;
 }
 
-/* ── PODIUM SECTION ── */
+/* --------------Podium se*/
 section {
     grid-area: se;
     height: auto;
@@ -211,7 +214,7 @@ section {
     color: var(--cyan);
 }
 
-/* ── TABLE ── */
+/*------------------Table stuff */
 main {
     grid-area: mn;
     padding: 0 0 80px;
@@ -282,7 +285,7 @@ tbody tr:hover {
     border-radius: 2px;
 }
 
-/* ── SECTION LABEL ── */
+/* ----------section label*/
 .section-label {
     display: flex;
     align-items: center;
@@ -303,7 +306,7 @@ tbody tr:hover {
     background: #1a2f50;
 }
 
-/* ── CRT EFFECT ── */
+/* crt*/
 .crt {
     position: relative;
 }
@@ -321,7 +324,7 @@ tbody tr:hover {
     z-index: 1;
 }
 
-/* ── ANIMATIONS ── */
+/* ---------------------*/
 @keyframes pulse-glow {
     0% {
         text-shadow: 0 0 5px var(--cyan), 0 0 10px var(--cyan);
@@ -360,7 +363,7 @@ tbody tr:hover {
     }
 }
 
-/* ── HOME ── */
+/* ----------home */
 #home {
     max-width: 860px;
     margin: 0 auto;
@@ -435,7 +438,7 @@ tbody tr:hover {
     line-height: 1.6;
 }
 
-/* ── ABOUT US ── */
+/* ------------------------about us */
 #contacts {
     max-width: 860px;
     margin: 0 auto;
@@ -500,7 +503,6 @@ tbody tr:hover {
     color: var(--cyan);
 }
 
-/* ── MILESTONES ── */
 #milestones {
     max-width: 860px;
     margin: 0 auto;
@@ -568,7 +570,7 @@ tbody tr:hover {
     box-shadow: 0 0 100px rgba(129, 140, 248, 0.3);
 }
 
-/* ── MILESTONE COLORS ── */
+
 .yellow {
     background: #ffd700;
 }
@@ -613,7 +615,6 @@ tbody tr:hover {
     background: linear-gradient(135deg, #ff399f, #c300ff, #2f00ff);
 }
 
-/* ── BREAKPOINTS ── */
 @media (min-width: 480px) {
     nav {
         gap: 28px;
