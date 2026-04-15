@@ -107,7 +107,7 @@ nav a.active {
     color: var(--cyan);
 }
 
-/* ---------------leaderbpard layout*/
+/* ---------------leaderboard layout*/
 #containterLeaderboard {
     display: grid;
     grid-template-rows: auto auto 1fr;
@@ -327,15 +327,15 @@ tbody tr:hover {
 /* ---------------------*/
 @keyframes pulse-glow {
     0% {
-        text-shadow: 0 0 5px var(--cyan), 0 0 10px var(--cyan);
+        text-shadow: 0 0 2px var(--cyan), 0 0 5px var(--cyan);
     }
 
     50% {
-        text-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan), 0 0 160px var(--cyan);
+        text-shadow: 0 0 5px var(--cyan), 0 0 15px var(--cyan), 0 0 125px var(--cyan);
     }
 
     100% {
-        text-shadow: 0 0 5px var(--cyan), 0 0 10px var(--cyan);
+        text-shadow: 0 0 2px var(--cyan), 0 0 5px var(--cyan);
     }
 }
 
