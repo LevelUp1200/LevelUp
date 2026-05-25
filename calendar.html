@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Kalender & Träffar – LEVEL UP! Ungdomsklubb Frölunda, Göteborg</title>
+  <!-- SEO -->
+  <meta name="description" content="Se kommande och tidigare träffar för Level Up – nördklubben på 1200 Kvadrat i Frölunda, Göteborg. Gaming, anime, cosplay, Warhammer och mer. Ojämna måndagar 16–20." />
+  <meta name="keywords" content="ungdomsklubb Göteborg, nördklubb Frölunda, träffar Level Up, LGBTQ ungdom Göteborg, gaming klubb Göteborg, Level Up kalender 1200 Kvadrat" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://levelup1200.github.io/LevelUp/calendar.html" />
+  <meta property="og:title" content="Kalender & Träffar – LEVEL UP! Ungdomsklubb Frölunda, Göteborg" />
+  <meta property="og:description" content="Se kommande och tidigare träffar för Level Up – nördklubben på 1200 Kvadrat i Frölunda, Göteborg." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://levelup1200.github.io/LevelUp/calendar.html" />
+  <meta property="og:image" content="https://levelup1200.github.io/LevelUp/leveluplogo.png" />
+  <link rel="icon" type="image/x-icon" href="leveluplogo.png">
+
+  <style>
+    /* ── Calendar-sidan specifik CSS ── */
+    #calendar-page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 100px 16px 80px;
+    }
+
+    .calendar-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .calendar-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 12vw, 92px);
+      color: var(--cyan);
+      animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+      margin: 0;
+    }
+
+    /* ── Karusell-scen ── */
+    .scene {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 900px;
+      margin-bottom: 24px;
+    }
+
+    /* Varje kort-wrapper */
+    .card-slot {
+      position: absolute;
+      will-change: transform, opacity;
+    }
+
+    /* Själva kortet */
+    .event-card {
+      border-radius: 10px;
+      border: 1px solid #1a2f50;
+      background: #101d33;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Kortets bildsektion */
+    .card-img {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a1628;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-img .placeholder {
+      font-size: 56px;
+      opacity: 0.4;
+    }
+
+    .card-body {
+      padding: 16px 20px 20px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tag-past     { color: #609edb; }
+    .tag-next     { color: #0dd0fc; }
+    .tag-upcoming { color: #a78bfa; }
+
+    .card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .card-date {
+      font-size: 13px;
+      color: #609edb;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      color: #8aaecc;
+      line-height: 1.5;
+    }
+
+    .badge-next {
+      display: inline-block;
+      background: rgba(13,208,252,0.1);
+      color: #0dd0fc;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(13,208,252,0.25);
+      margin-top: 10px;
+    }
+
+    .wipe {
+      position: absolute;
+      inset: 0;
+      background: #101d33;
+      transform-origin: top;
+      z-index: 10;
+      pointer-events: none;
+      border-radius: 10px;
+    }
+
+    .card-loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #0a1628;
+      z-index: 5;
+      border-radius: 10px;
+    }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 2px solid #1a2f50;
+      border-top-color: #0dd0fc;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .spinner-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #3a5c80;
+    }
+
+    .error-msg {
+      text-align: center;
+      color: #609edb;
+      font-size: 14px;
+      padding: 60px 20px;
+      opacity: 0.7;
+    }
+
+    @media (min-width: 768px) {
+      #calendar-page {
+        padding: 120px 24px 80px;
+      }
+      .scene {
+        height: 560px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapperCalendar">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="aboutus.html">About us</a>
+      <a href="milestones.html">Milestones</a>
+      <a href="calendar.html" class="active">Calendar</a>
+    </nav>
+
+    <main id="calendar-page">
+      <div class="calendar-hero">
+        <h1 class="crt">Calendar</h1>
+        <p class="hero-desc">Föregående, nästa och kommande träffar</p>
+      </div>
+
+      <div class="section-label">Nästa träff</div>
+
+      <div class="scene" id="scene">
+        <div class="error-msg" id="errorMsg" style="display:none;">
+          Kunde inte ladda träffar. Försök igen senare.
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    const SHEET_ID  = '1SyFA2P5r4ETjk-Pi6bslTfMYuJn9XiL9524yEyqISfU';
+    const SHEET_TAB = 'Kalender';
+    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${encodeURIComponent(SHEET_TAB)}`;
+
+    const RADIUS       = 260;
+    const FINAL_ANGLES = [-55, 0, 55];
+
+    function angleToProps(deg) {
+      const rad = deg * Math.PI / 180;
+      const t   = (Math.cos(rad) + 1) / 2;
+      return {
+        x:       Math.sin(rad) * RADIUS,
+        scale:   0.62 + 0.38 * t,
+        opacity: 0.35 + 0.65 * t,
+        zIndex:  Math.round(t * 10),
+      };
+    }
+
+    function buildCard(data, position) {
+      const isCenter  = position === 'next';
+      const width     = isCenter ? 300 : 240;
+      const imgHeight = isCenter ? 180 : 150;
+      const nameSize  = isCenter ? 30  : 22;
+      const descSize  = isCenter ? 14  : 12;
+
+      const tagMap = {
+        past:     { label: 'Föregående', cls: 'tag-past' },
+        next:     { label: 'Nästa träff', cls: 'tag-next' },
+        upcoming: { label: 'Kommande',    cls: 'tag-upcoming' },
+      };
+      const tag = tagMap[position];
+
+      const dateStr = formatDate(data.datum);
+
+      const imgHtml = data.bild
+        ? `<img src="${escapeHtml(data.bild)}" alt="${escapeHtml(data.namn)}" loading="lazy" />`
+        : `<span class="placeholder">📅</span>`;
+
+      const slot = document.createElement('div');
+      slot.className = 'card-slot';
+
+      slot.innerHTML = `
+        <div class="event-card" style="
+          width: ${width}px;
+          ${isCenter ? 'border-color:#0dd0fc; box-shadow:0 0 36px rgba(13,208,252,0.25);' : ''}
+        ">
+          <div class="wipe"></div>
+          <div class="card-loader">
+            <div class="spinner"></div>
+            <div class="spinner-label">Laddar</div>
+          </div>
+          <div class="card-img" style="height:${imgHeight}px;">
+            ${imgHtml}
+          </div>
+          <div class="card-body">
+            <div class="card-tag ${tag.cls}">${tag.label}</div>
+            <div class="card-name" style="font-size:${nameSize}px;">${escapeHtml(data.namn)}</div>
+            <div class="card-date">${dateStr}</div>
+            <div class="card-desc" style="font-size:${descSize}px;">${escapeHtml(data.beskrivning)}</div>
+            ${isCenter ? '<div class="badge-next">⚡ Snart!</div>' : ''}
+          </div>
+        </div>`;
+
+      return slot;
+    }
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    let animFrame  = null;
+    let angles     = [];
+    let targets    = [];
+    let cardSlots  = [];
+
+    function applyAngle(slot, deg) {
+      const p = angleToProps(deg);
+      slot.style.transform = `translateX(${p.x.toFixed(2)}px) scale(${p.scale.toFixed(4)})`;
+      slot.style.opacity   = p.opacity.toFixed(4);
+      slot.style.zIndex    = p.zIndex;
+    }
+
+    function tickAnimation() {
+      let allSettled = true;
+      for (let i = 0; i < cardSlots.length; i++) {
+        const diff = targets[i] - angles[i];
+        if (Math.abs(diff) > 0.05) {
+          angles[i] = lerp(angles[i], targets[i], 0.045);
+          allSettled = false;
+        } else {
+          angles[i] = targets[i];
+        }
+        applyAngle(cardSlots[i], angles[i]);
+      }
+      if (!allSettled) {
+        animFrame = requestAnimationFrame(tickAnimation);
+      } else {
+        revealCards();
+      }
+    }
+
+    function revealCards() {
+      cardSlots.forEach((slot, i) => {
+        setTimeout(() => {
+          const loader = slot.querySelector('.card-loader');
+          if (loader) loader.style.display = 'none';
+          const wipe = slot.querySelector('.wipe');
+          if (wipe) {
+            wipe.style.transition = 'transform 0.52s cubic-bezier(0.4, 0, 0.15, 1)';
+            wipe.style.transform  = 'scaleY(0)';
+          }
+        }, i * 90);
+      });
+    }
+
+    function startCarousel(slots) {
+      cardSlots = slots;
+      angles  = [175, 180, 185];
+      targets = [...FINAL_ANGLES];
+      cardSlots.forEach((slot, i) => applyAngle(slot, angles[i]));
+      requestAnimationFrame(() => requestAnimationFrame(tickAnimation));
+    }
+
+    function pickThreeEvents(rows) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      let nextIndex = -1;
+      for (let i = 0; i < rows.length; i++) {
+        const d = parseDate(rows[i].datum);
+        if (d && d >= today) { nextIndex = i; break; }
+      }
+      if (nextIndex === -1) nextIndex = rows.length - 1;
+      const pastIndex     = Math.max(0, nextIndex - 1);
+      const upcomingIndex = Math.min(rows.length - 1, nextIndex + 1);
+      return [
+        { data: rows[pastIndex],     position: 'past'     },
+        { data: rows[nextIndex],     position: 'next'     },
+        { data: rows[upcomingIndex], position: 'upcoming' },
+      ];
+    }
+
+    function parseDate(str) {
+      if (!str) return null;
+      const parts = str.split('-');
+      if (parts.length !== 3) return null;
+      return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    }
+
+    function formatDate(str) {
+      const d = parseDate(str);
+      if (!d) return str || '';
+      return d.toLocaleDateString('sv-SE', { weekday: 'long', day: 'numeric', month: 'long' });
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    fetch(SHEET_URL)
+      .then(res => res.text())
+      .then(raw => {
+        const jsonPart = raw.split('setResponse(')[1];
+        if (!jsonPart) throw new Error('Oväntat svar från Google Sheets');
+        const jsonText = jsonPart.slice(0, jsonPart.length - 2);
+        const parsed   = JSON.parse(jsonText);
+        const rows = parsed.table.rows.map(row => ({
+          namn:        row.c[0]?.v ?? '',
+          datum:       row.c[1]?.f ?? row.c[1]?.v ?? '',
+          beskrivning: row.c[2]?.v ?? '',
+          bild:        row.c[3]?.v ?? '',
+        }));
+        rows.sort((a, b) => {
+          const da = parseDate(a.datum), db = parseDate(b.datum);
+          if (!da && !db) return 0;
+          if (!da) return 1;
+          if (!db) return -1;
+          return da - db;
+        });
+        if (rows.length === 0) throw new Error('Inga träffar hittades');
+        const three = pickThreeEvents(rows);
+        const scene = document.getElementById('scene');
+        const slots = three.map(({ data, position }) => {
+          const slot = buildCard(data, position);
+          scene.appendChild(slot);
+          return slot;
+        });
+        startCarousel(slots);
+      })
+      .catch(err => {
+        console.error('Calendar:', err);
+        document.getElementById('errorMsg').style.display = 'block';
+      });
+  </script>
+</body>
+</html>

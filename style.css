@@ -1,0 +1,1249 @@
+:root {
+    --bg: #050a14;
+    --cyan: #0dd0fc;
+    --panel: #101d33;
+    --text: #cde6ff;
+    --bread: #609edb;
+}
+
+main {
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg);
+    color: var(--text);
+    background-image:
+        linear-gradient(var(--panel) 1px, transparent 1px),
+        linear-gradient(90deg, var(--panel) 1px, transparent 1px);
+    background-size: 60px 60px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.08) 2px,
+            rgba(0, 0, 0, 0.08) 4px);
+    pointer-events: none;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 3px;
+    box-shadow:
+        0 0 6px var(--cyan),
+        0 0 12px var(--cyan),
+        0 0 20px var(--cyan);
+}
+
+/* --------------wrappers*/
+#wrapperAboutus,
+#wrapperHome,
+#wrapperLeaderboard,
+#wrapperMilestones,
+#wrappperMilestones {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/* ------------nav*/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 12px 16px;
+    background: rgba(5, 10, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1a2f50;
+    z-index: 100;
+}
+
+nav a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bread);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+nav a.active {
+    color: var(--cyan);
+}
+
+/* ---------------leaderboard layout*/
+#containterLeaderboard {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "hd"
+        "se"
+        "mn";
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.leaderboard-hero {
+    grid-area: hd;
+    display: flex;
+    justify-content: center;
+    padding: 100px 16px 40px;
+}
+
+.leaderboard-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 12vw, 92px);
+    color: var(--cyan);
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+    margin: 0;
+    text-align: center;
+}
+
+/* --------------Podium se*/
+section {
+    grid-area: se;
+    height: auto;
+    min-height: 160px;
+    padding: 16px 0 32px;
+}
+
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    height: 100%;
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.podium-card {
+    flex: 1;
+    min-width: 0;
+    max-width: 240px;
+    border-radius: 4px;
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #1a2f50;
+    background: var(--panel);
+    word-break: break-word;
+}
+
+.rank-1 {
+    padding-top: 28px;
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.rank-2 {
+    border-color: #c0c0c0;
+    box-shadow: 0 0 16px rgba(192, 192, 192, 0.15);
+}
+
+.rank-3 {
+    border-color: #cd7f32;
+    box-shadow: 0 0 16px rgba(205, 127, 50, 0.15);
+}
+
+.podium-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(24px, 6vw, 42px);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.rank-1 .podium-rank {
+    color: #ffd700;
+}
+
+.rank-2 .podium-rank {
+    color: #c0c0c0;
+}
+
+.rank-3 .podium-rank {
+    color: #cd7f32;
+}
+
+.podium-name {
+    font-size: clamp(12px, 3vw, 18px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.podium-xp {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(14px, 4vw, 24px);
+    color: var(--cyan);
+}
+
+/*------------------Table stuff */
+main {
+    grid-area: mn;
+    padding: 0 0 80px;
+}
+
+.table-wrap {
+    border: 1px solid #1a2f50;
+    border-radius: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    min-width: 360px;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background: var(--panel);
+    border-bottom: 1px solid #1a2f50;
+}
+
+th {
+    padding: 10px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--bread);
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tr {
+    background-color: var(--panel);
+    height: 50px;
+}
+
+td {
+    background-color: transparent;
+    padding: 10px 12px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #1a2f50;
+    transition: background 0.15s;
+}
+
+tbody tr:hover {
+    background: rgba(13, 208, 252, 0.1);
+}
+
+.xp-bar-wrap {
+    width: 60px;
+    height: 4px;
+    background: #1a2f50;
+    border-radius: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.xp-bar {
+    height: 100%;
+    background: var(--cyan);
+    border-radius: 2px;
+}
+
+/* ----------section label*/
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--bread);
+    text-transform: uppercase;
+}
+
+.section-label::before,
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1a2f50;
+}
+
+/* crt*/
+.crt {
+    position: relative;
+}
+
+.crt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 4px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ---------------------*/
+@keyframes pulse-glow {
+    0% {
+        text-shadow: 0 0 2px var(--cyan), 0 0 5px var(--cyan);
+    }
+
+    50% {
+        text-shadow: 0 0 5px var(--cyan), 0 0 15px var(--cyan), 0 0 125px var(--cyan);
+    }
+
+    100% {
+        text-shadow: 0 0 2px var(--cyan), 0 0 5px var(--cyan);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----------home */
+#home {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 100px 16px 80px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.hero-logo img {
+    max-width: 100%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 20px var(--cyan);
+}
+
+.hero h1,
+.contacts-hero h1,
+.milestones-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 12vw, 92px);
+    color: var(--cyan);
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+    margin: 0;
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: var(--bread);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.xp-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.xp-card {
+    flex: 1 1 140px;
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 4px;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.xp-card-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.xp-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--cyan);
+    margin-bottom: 6px;
+}
+
+.xp-card-desc {
+    font-size: 13px;
+    color: var(--bread);
+    line-height: 1.6;
+}
+
+/* ------------------------about us */
+#contacts {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 100px 16px 80px;
+}
+
+.contacts-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-box {
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 16px 0 40px;
+    color: var(--bread);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.contact-card {
+    flex: 1 1 140px;
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 4px;
+    padding: 20px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(13, 208, 252, 0.2);
+}
+
+.contact-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.contact-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--bread);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.contact-value {
+    font-size: 14px;
+    color: var(--cyan);
+}
+
+#milestones {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 100px 16px 80px;
+}
+
+.milestones-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.milestone-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.milestone-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 4px;
+    padding: 14px 20px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.milestone-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(13, 208, 252, 0.15);
+}
+
+.milestone-color {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.milestone-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+.milestone-levels {
+    font-size: 12px;
+    color: var(--bread);
+    letter-spacing: 2px;
+}
+
+.milestone-reward {
+    font-size: 12px;
+    color: var(--cyan);
+    margin-top: 4px;
+    letter-spacing: 1px;
+}
+
+.mythical-card {
+    position: relative;
+    overflow: hidden;
+    border-color: #818cf8;
+    box-shadow: 0 0 100px rgba(129, 140, 248, 0.3);
+}
+
+
+.yellow {
+    background: #ffd700;
+}
+
+.green {
+    background: #00c853;
+}
+
+.blue {
+    background: #2979ff;
+}
+
+.purple {
+    background: #aa00ff;
+}
+
+.red {
+    background: #d50000;
+}
+
+.bronze {
+    background: linear-gradient(135deg, #cd7f32, #3a1606);
+}
+
+.silver {
+    background: linear-gradient(135deg, #c0c0c0, #0c0c0c);
+}
+
+.gold {
+    background: linear-gradient(135deg, #ffcd45, #1d1a00);
+}
+
+.diamond {
+    background: linear-gradient(135deg, #76d3dd, #afdbff, #4754cc);
+}
+
+.platinum {
+    background: linear-gradient(135deg, #67f9ed, #affff8, #22eecc);
+}
+
+.mythical {
+    background: linear-gradient(135deg, #ff399f, #c300ff, #2f00ff);
+}
+
+@media (min-width: 480px) {
+    nav {
+        gap: 28px;
+    }
+
+    #containterLeaderboard {
+        padding: 0 20px;
+    }
+
+    th,
+    td {
+        padding: 12px 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        gap: 40px;
+        padding: 16px;
+    }
+
+    nav a {
+        font-size: 13px;
+        letter-spacing: 3px;
+    }
+
+    .leaderboard-hero {
+        padding: 140px 24px 60px;
+    }
+
+    #containterLeaderboard {
+        padding: 0 24px;
+    }
+
+    th {
+        padding: 12px 20px;
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    td {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    .podium-card {
+        padding: 20px 16px;
+    }
+
+    .rank-1 {
+        padding-top: 40px;
+    }
+
+    .hero-logo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #home,
+    #contacts,
+    #milestones {
+        padding: 120px 24px 80px;
+    }
+}
+/* ═══════════════════════════════════════════════════════
+   CALENDAR PAGE
+   ═══════════════════════════════════════════════════════ */
+
+#wrapperCalendar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+#calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 16px 80px;
+}
+
+.calendar-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calendar-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 12vw, 92px);
+    color: var(--cyan);
+    animation: fadeDown 0.6s ease both, pulse-glow 4s ease-in-out infinite;
+    margin: 0;
+}
+
+/* ── Grid that holds the cards ── */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    animation: fadeUp 0.7s 0.2s ease both;
+}
+
+/* ── Individual event card ── */
+.event-card {
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+
+    /* Entrance animation – each card fades + slides up */
+    animation: fadeUp 0.5s ease both;
+}
+
+.event-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 18px rgba(13, 208, 252, 0.2);
+    transform: translateY(-3px);
+}
+
+/* ── Highlighted "next event" card ── */
+.event-next {
+    border-color: var(--cyan);
+    box-shadow: 0 0 24px rgba(13, 208, 252, 0.25);
+    grid-column: span 1;   /* same size on mobile */
+}
+
+/* On wider screens the "next" card spans 2 columns so it stands out */
+@media (min-width: 640px) {
+    .event-next {
+        grid-column: span 2;
+    }
+
+    .event-next .event-img {
+        height: 260px;
+    }
+
+    .event-next .event-title {
+        font-size: 28px;
+    }
+}
+
+/* ── Past events look slightly dimmed ── */
+.event-past {
+    opacity: 0.65;
+    filter: grayscale(30%);
+}
+
+.event-past:hover {
+    opacity: 1;
+    filter: none;
+}
+
+/* ── Image area ── */
+.event-img-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.event-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-img {
+    transform: scale(1.04);
+}
+
+/* ── Badge (e.g. "Nästa träff") ── */
+.event-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--cyan);
+    color: var(--bg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+.past-badge {
+    background: #1a2f50;
+    color: var(--bread);
+}
+
+/* ── Text content inside card ── */
+.event-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.event-date {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--bread);
+    text-transform: uppercase;
+}
+
+.event-time {
+    font-size: 12px;
+    color: var(--bread);
+}
+
+.event-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--cyan);
+    line-height: 1.1;
+}
+
+.event-desc {
+    font-size: 13px;
+    color: var(--bread);
+    line-height: 1.6;
+    margin-top: 4px;
+}
+
+/* ── Skeleton loaders shown while data is loading ── */
+.event-skeleton {
+    height: 280px;
+    background: var(--panel);
+    border: 1px solid #1a2f50;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(13, 208, 252, 0.05), transparent);
+    animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+}
+
+/* ── Empty state message ── */
+.no-events {
+    color: var(--bread);
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 24px 0;
+    grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+    #calendar {
+        padding: 120px 24px 80px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE OVERHAUL – Level Up Gaming HUD
+   Mobile: bottom tab bar like a game controller HUD
+   Tablet: sidebar nav with glow indicators
+   Desktop: existing top nav, polished
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. FLUID TYPOGRAPHY – scales smoothly across all sizes ── */
+:root {
+  --fs-hero:   clamp(42px, 14vw, 92px);
+  --fs-h2:     clamp(20px, 5vw, 36px);
+  --fs-body:   clamp(14px, 2.2vw, 16px);
+  --fs-label:  clamp(9px, 1.8vw, 12px);
+  --pad-page:  clamp(12px, 4vw, 32px);
+  --radius:    8px;
+}
+
+/* Apply fluid sizes */
+.hero h1,
+.contacts-hero h1,
+.milestones-hero h1,
+.leaderboard-hero h1,
+.calendar-hero h1 {
+  font-size: var(--fs-hero) !important;
+}
+
+.hero-desc,
+.about-article,
+.about-box {
+  font-size: var(--fs-body);
+}
+
+/* ── 2. MOBILE-FIRST: Bottom HUD Tab Bar ──────────────────── */
+@media (max-width: 639px) {
+  /* Hide the top nav on mobile – replace with bottom bar */
+  nav {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: none;
+    border-top: 1px solid #1a2f50;
+    padding: 0;
+    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    backdrop-filter: blur(16px);
+    background: rgba(5, 10, 20, 0.92);
+    z-index: 200;
+    /* subtle scan-line texture on the bar itself */
+    background-image:
+      repeating-linear-gradient(0deg,
+        transparent,
+        transparent 3px,
+        rgba(13,208,252,0.015) 3px,
+        rgba(13,208,252,0.015) 4px);
+  }
+
+  nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 10px 2px 12px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #3a5c80;
+    border-top: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    position: relative;
+  }
+
+  /* Icon glyphs via ::before – retro pixel-art style */
+  nav a[href="index.html"]::before       { content: "⌂"; font-size: 16px; line-height: 1; }
+  nav a[href="leaderboard.html"]::before { content: "◈"; font-size: 16px; line-height: 1; }
+  nav a[href="aboutus.html"]::before     { content: "◎"; font-size: 16px; line-height: 1; }
+  nav a[href="milestones.html"]::before  { content: "◆"; font-size: 16px; line-height: 1; }
+  nav a[href="calendar.html"]::before    { content: "▦"; font-size: 16px; line-height: 1; }
+
+  nav a.active {
+    color: var(--cyan);
+    border-top-color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+  }
+
+  /* Active tab gets a glow pip */
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+    border-radius: 0 0 2px 2px;
+  }
+
+  nav a:hover {
+    color: var(--cyan);
+  }
+
+  /* Push page content up so bottom bar doesn't cover it */
+  #home, #contacts, #milestones, #calendar-page {
+    padding: 72px var(--pad-page) 100px !important;
+  }
+
+  #containterLeaderboard {
+    padding: 0 var(--pad-page) !important;
+  }
+
+  .leaderboard-hero {
+    padding: 72px var(--pad-page) 28px !important;
+  }
+
+  /* Stack podium vertically on tiny screens */
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .podium-card {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 16px !important;
+  }
+
+  /* rank-1 no extra top padding when stacked */
+  .rank-1 { padding-top: 12px !important; }
+
+  /* XP cards: 2-col grid on mobile */
+  .xp-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .xp-card {
+    padding: 16px 12px;
+  }
+
+  /* Contact cards: single column stack on mobile */
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-card {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 14px 18px;
+  }
+
+  .contact-icon {
+    font-size: 24px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    margin-bottom: 2px;
+    font-size: 9px;
+  }
+
+  .contact-value {
+    font-size: 13px;
+    word-break: break-all;
+  }
+
+  /* About highlight: 2x2 grid */
+  .about-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  /* Milestone cards: compact */
+  .milestone-card {
+    padding: 10px 14px;
+  }
+
+  .milestone-color {
+    width: 28px;
+    height: 28px;
+  }
+
+  .milestone-name {
+    font-size: 18px !important;
+  }
+
+  /* Calendar carousel: shrink scene */
+  .scene {
+    height: 400px !important;
+    perspective: 600px !important;
+  }
+
+  /* Table: hide level column on tiny screens */
+  #xpInfo th:nth-child(3),
+  #xpInfo td:nth-child(3) {
+    display: none;
+  }
+
+  /* Hero logo smaller */
+  .hero-logo img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+/* ── 3. SMALL TABLET (640–767px) ────────────────────────────── */
+@media (min-width: 640px) and (max-width: 767px) {
+  nav {
+    gap: 18px;
+    padding: 10px 16px;
+  }
+
+  nav a {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  #home, #contacts, #milestones {
+    padding: 90px 20px 60px !important;
+  }
+
+  .xp-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .scene {
+    height: 460px !important;
+  }
+}
+
+/* ── 4. TABLET (768–1023px) – Polished mid-size ─────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  nav {
+    gap: 24px;
+    padding: 14px 24px;
+  }
+
+  .podium-card {
+    max-width: 200px;
+  }
+
+  .xp-cards {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    gap: 14px;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .about-highlight {
+    gap: 20px;
+  }
+
+  .scene {
+    height: 520px !important;
+  }
+}
+
+/* ── 5. DESKTOP (1024px+) – Original layout, enhanced ──────── */
+@media (min-width: 1024px) {
+  nav a {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  /* Hover underline sweep on desktop */
+  nav a:not(.active) {
+    position: relative;
+  }
+
+  nav a:not(.active)::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan);
+    transition: width 0.25s ease;
+  }
+
+  nav a:not(.active):hover::after {
+    width: 100%;
+  }
+
+  .xp-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+}
+
+/* ── 6. GLITCH ANIMATION on hero titles (mobile-friendly) ── */
+@keyframes glitch-1 {
+  0%, 90%, 100% { clip-path: none; transform: none; }
+  92% { clip-path: inset(20% 0 60% 0); transform: translateX(-4px); }
+  94% { clip-path: inset(60% 0 10% 0); transform: translateX(4px); }
+  96% { clip-path: inset(40% 0 40% 0); transform: translateX(-2px); }
+}
+
+.crt {
+  animation: glitch-1 8s infinite;
+}
+
+/* ── 7. TOUCH-FRIENDLY tap targets ──────────────────────────── */
+@media (hover: none) {
+  .contact-card,
+  .xp-card,
+  .milestone-card {
+    min-height: 80px;
+  }
+
+  /* Remove hover transforms on touch – they feel laggy */
+  .event-card:hover {
+    transform: none;
+  }
+
+  .milestone-card:hover,
+  .contact-card:hover {
+    border-color: #1a2f50;
+    box-shadow: none;
+  }
+}
+
+/* ── 8. SAFE AREA for phones with home indicator (iPhone etc) ── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 639px) {
+    nav {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Om oss – Level Up Ungdomsklubb i Frölunda | Nördklubb Göteborg</title>
+  <!-- SEO -->
+  <meta name="description" content="Level Up är en nördklubb för ungdomar 13–19 år på fritidsgården 1200 Kvadrat i Västra Frölunda, Göteborg. Gaming, anime, Warhammer, cosplay, rollspel och fika – varje ojämn måndag kl 16–20. Gratis och öppet för alla!" />
+  <meta name="keywords" content="ungdomsklubb Göteborg, nördklubb Frölunda, nördklubb Göteborg, ungdomsgård Västra Frölunda, gaming ungdomar Göteborg, anime klubb Göteborg, Warhammer ungdomar, cosplay Göteborg, rollspel tonåringar Göteborg, LGBTQ ungdom Göteborg, Level Up 1200 Kvadrat, fritidsgård Frölunda, ungdomsverksamhet Göteborg, nördiga intressen Göteborg, brädspelsklubb Göteborg" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://levelup1200.github.io/LevelUp/aboutus.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Om oss – Level Up Nördklubb i Frölunda, Göteborg" />
+  <meta property="og:description" content="Level Up är en öppen och trygg nördklubb på 1200 Kvadrat i Västra Frölunda för unga 13–19 år. Gaming, anime, Warhammer, cosplay och rollspel. Ojämna måndagar kl 16–20." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://levelup1200.github.io/LevelUp/aboutus.html" />
+  <meta property="og:image" content="https://levelup1200.github.io/LevelUp/leveluplogo.png" />
+
+  <!-- Structured data for local club -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Level Up – Nördklubb på 1200 Kvadrat",
+    "description": "Ungdomsklubb för nördar 13–19 år i Västra Frölunda, Göteborg. Gaming, anime, Warhammer, cosplay och rollspel.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mandolingatan 47",
+      "addressLocality": "Göteborg",
+      "addressRegion": "Västra Götaland",
+      "addressCountry": "SE"
+    },
+    "telephone": "+46735985377",
+    "email": "1200kvadrat@socialsydvast.goteborg.se",
+    "url": "https://levelup1200.github.io/LevelUp/",
+    "openingHours": "Mo 16:00-20:00"
+  }
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="leveluplogo.png">
+
+  <style>
+    .copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--cyan);
+      color: var(--bg);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .about-article {
+      background: var(--panel);
+      border: 1px solid #1a2f50;
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 16px 0 32px;
+      color: var(--bread);
+      line-height: 1.85;
+      font-size: 16px;
+    }
+    .about-article p {
+      margin: 0 0 16px;
+    }
+    .about-article p:last-child {
+      margin-bottom: 0;
+    }
+    .about-article strong {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .about-highlight {
+      background: rgba(13,208,252,0.06);
+      border: 1px solid rgba(13,208,252,0.2);
+      border-radius: 6px;
+      padding: 18px 24px;
+      margin: 16px 0 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .about-highlight-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .about-highlight-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--bread);
+    }
+    .about-highlight-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: var(--cyan);
+    }
+    /* Make contact cards non-link when using copy */
+    .contact-card.copy-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapperAboutus">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="aboutus.html" class="active">About us</a>
+      <a href="milestones.html">Milestones</a>
+      <a href="calendar.html">Calendar</a>
+    </nav>
+    <main id="contacts">
+      <div class="contacts-hero">
+        <h1 class="crt">Om oss</h1>
+        <p class="hero-desc">En trygg plats för alla nördar i Frölunda</p>
+      </div>
+
+      <!-- Quick facts -->
+      <div class="about-highlight">
+        <div class="about-highlight-item">
+          <div class="about-highlight-label">Ålder</div>
+          <div class="about-highlight-value">13–19 år</div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="about-highlight-label">När</div>
+          <div class="about-highlight-value">Ojämna måndagar 16–20</div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="about-highlight-label">Var</div>
+          <div class="about-highlight-value">1200 Kvadrat, Övre våningen</div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="about-highlight-label">Kostnad</div>
+          <div class="about-highlight-value">Gratis</div>
+        </div>
+      </div>
+
+      <div class="section-label">Vad är Level Up?</div>
+      <div class="about-article">
+        <p>Gillar du spel, anime, cosplay, rollspel eller andra nördiga grejer – men saknar rätt utrymme, resurser eller folk att dela det med? <strong>Level Up är mötesplatsen där nördighet inte bara är okej, utan något vi firar.</strong> Här kan du vara dig själv, testa nya intressen, hänga med likasinnade och hitta nya vänner i en trygg och välkomnande miljö. Oavsett om du är en hardcore-nörd eller bara nyfiken – Level Up är platsen där du hör hemma.</p>
+
+        <p>Vi befinner oss på övre våningen på fritidsgården <strong>1200 Kvadrat i Västra Frölunda</strong>. Här ses vi och utövar intressen, hänger, spelar och fikar. Vi har olika bord där vi gör lite olika saker: ett stort utbud av brädspel, flera Warhammer-arméer som väntar på att bli ihopsatta och målade, Dungeons & Dragons-minifigurer, tärningar och game master-skärmar att låna, färger för minifigurer samt en konststation med material för att skapa. Vi kollar också på film – framför allt anime.</p>
+
+        <p><strong>Ojämna veckor på måndagar kl 16–20</strong> har vi våra vanliga träffar: brädspel, film, samtal och fika. Ungefär en gång i månaden håller vi också i ett extra tillfälle med mer specifika teman – som att spela Dungeons &amp; Dragons, måla Warhammer-figurer, eller temakvällar som vår halloweenkväll med skräckbrädspel och cosplay.</p>
+
+        <p>Vi vill göra hobbyer mer tillgängliga. Warhammer kan exempelvis vara en väldigt dyr hobby – men genom klubben kan du utöva den <strong>helt utan kostnad</strong>. Vi lånar ut material, spel och figurer fritt till alla medlemmar.</p>
+
+        <p>Level Up drivs av två sociala ungdomar med nördiga intressen som jobbar med Ung Extra. Vår roll är att se till att alla som dyker upp känner sig välkomnade och har kul. Eftersom Level Up är en del av fritidsgården 1200 Kvadrat finns det alltid en ansvarig vuxen på plats.</p>
+
+        <p><strong>Kom förbi! Du är mer än välkommen.</strong></p>
+      </div>
+
+      <div class="section-label">Hitta oss</div>
+      <div class="contact-cards">
+        <!-- Email: copy to clipboard -->
+        <div class="contact-card copy-btn" onclick="copyText('1200kvadrat@socialsydvast.goteborg.se', 'E-post kopierad!')">
+          <div class="contact-icon">📧</div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">1200kvadrat@socialsydvast.goteborg.se</div>
+        </div>
+        <!-- Phone: copy to clipboard -->
+        <div class="contact-card copy-btn" onclick="copyText('0735985377', 'Telefonnummer kopierat!')">
+          <div class="contact-icon">📞</div>
+          <div class="contact-label">Telefon</div>
+          <div class="contact-value">073-598 53 77</div>
+        </div>
+        <!-- Instagram: correct URL -->
+        <a href="https://www.instagram.com/1200kvadrat" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">📸</div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@1200kvadrat</div>
+        </a>
+        <!-- Discord -->
+        <a href="https://discord.gg/WP5h2yKxFz" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">🎮</div>
+          <div class="contact-label">Discord</div>
+          <div class="contact-value">discord.gg/WP5h2yKxFz</div>
+        </a>
+      </div>
+
+      <div class="section-label">Adress</div>
+      <div class="about-box">
+        <p>1200 Kvadrat – Övre våningen<br>Mandolingatan 47, Göteborg</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Copy toast notification -->
+  <div class="copy-toast" id="copyToast"></div>
+
+  <script>
+    function copyText(text, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }).catch(() => {
+        // Fallback for older browsers
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        const toast = document.getElementById('copyToast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      });
+    }
+  </script>
+</body>
+</html>

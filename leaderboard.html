@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+  <link rel="stylesheet" href="style.css" />
+    <title>Leaderboard – LEVEL UP! Ungdomsklubb Göteborg</title>
+  <!-- SEO -->
+  <meta name="description" content="Se XP-listan för Level Up – ungdomsklubben i Frölunda. Vem är i toppen den här veckan?" />
+  <meta name="keywords" content="ungdomsklubb Göteborg, nördklubb Frölunda, LGBTQ ungdom Göteborg, gaming klubb, cosplay ungdom Göteborg, Level Up 1200 Kvadrat" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://levelup1200.github.io/LevelUp/leaderboard.html" />
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:title" content="Leaderboard – LEVEL UP! Ungdomsklubb Göteborg" />
+  <meta property="og:description" content="Se XP-listan för Level Up – ungdomsklubben i Frölunda. Vem är i toppen den här veckan?" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://levelup1200.github.io/LevelUp/leaderboard.html" />
+  <meta property="og:image" content="https://levelup1200.github.io/LevelUp/leveluplogo.png" />
+
+    <link rel="icon" type="image/x-icon" href="leveluplogo.png" />
+  </head>
+
+  <body>
+        <nav>
+      <a href="index.html">Home</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="aboutus.html">About us</a>
+      <a href="milestones.html">Milestones</a>
+      <a href="calendar.html">Calendar</a>
+    </nav>
+    <div id="wrapperLeaderboard">
+      <div id="containterLeaderboard">
+        <div class="leaderboard-hero">
+          <h1 class="crt">Leaderboard</h1>
+        </div>
+        <section>
+          <div class="podium">
+            <div class="podium-card rank-2">
+              <div class="podium-rank">#2</div>
+              <div class="podium-name"></div>
+              <div class="podium-xp"></div>
+            </div>
+            <div class="podium-card rank-1">
+              <div class="podium-rank">#1</div>
+              <div class="podium-name"></div>
+              <div class="podium-xp"></div>
+            </div>
+            <div class="podium-card rank-3">
+              <div class="podium-rank">#3</div>
+              <div class="podium-name"></div>
+              <div class="podium-xp"></div>
+            </div>
+          </div>
+        </section>
+        <main>
+          <div class="section-label">All Players</div>
+          <div class="table-wrap">
+            <table id="xpInfo">
+              <thead id="xpHead">
+                <tr>
+                  <th>#</th>
+                  <th>Alias</th>
+                  <th>Level</th>
+                  <th>Total XP</th>
+                </tr>
+              </thead>
+              <tbody class="tbody"></tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
